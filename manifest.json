@@ -1,0 +1,14 @@
+{
+  "name": "Piped Switch",
+  "version": "1.0.0",
+  "description": "A context menu to easily switch between Piped and Youtube",
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}
