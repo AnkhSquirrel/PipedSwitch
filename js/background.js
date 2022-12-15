@@ -5,11 +5,11 @@ const PIPED_URL = "https://piped.kavin.rocks/";
 
 window.browser.contextMenus.create({
     "title": "Piped Switch",
-    "onclick": Switch,
+    "onclick": swicthWebsite,
     "documentUrlPatterns": ['*://*.youtube.com/*', '*://piped.kavin.rocks/*']
 })
 
-function Switch(info) {
+function swicthWebsite(info) {
     const URL = info.pageUrl;
     let newUrl = URL;
 
@@ -19,7 +19,17 @@ function Switch(info) {
         newUrl = YOUTUBE_URL + URL.split(PIPED_URL)[1];
     }
 
-    browser.tabs.update({
-        url: newUrl,
+    browser.storage.sync.get({
+        openInNewTab: false
+    }, function (items) {
+        if (items.openInNewTab) {
+            browser.tabs.create({
+                url: newUrl,
+            });
+        } else {
+            browser.tabs.update({
+                url: newUrl,
+            });
+        }
     });
 }

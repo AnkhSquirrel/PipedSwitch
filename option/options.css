@@ -1,0 +1,15 @@
+html,
+body {
+    min-width: 300px;
+    font-size: medium;
+}
+
+body>*{
+    margin: 10px;
+}
+
+#save{
+    text-align: center;
+    width: 80px;
+    height: 40px;
+}
