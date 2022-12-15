@@ -1,3 +1,5 @@
 # PipedSwitch
- 
-A context menu to easily switch between Piped and Youtube.
+
+Firefox / Chrome extension to easily switch between Piped and Youtube.
+
+* Context menu.
