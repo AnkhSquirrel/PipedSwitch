@@ -10,13 +10,13 @@ window.browser.contextMenus.create({
 })
 
 function Switch(info) {
-    const URL = info.pageUrl;
-    let newUrl = URL;
+    const CURRENT_URL = info.pageUrl;
+    let newUrl = CURRENT_URL;
 
-    if (URL.includes(YOUTUBE_URL)) {
-        newUrl = PIPED_URL + URL.split(YOUTUBE_URL)[1];
-    } else if (URL.includes(PIPED_URL)) {
-        newUrl = YOUTUBE_URL + URL.split(PIPED_URL)[1];
+    if ( CURRENT_URL.includes(YOUTUBE_URL) ) {
+        newUrl = PIPED_URL + CURRENT_URL.split(YOUTUBE_URL)[1];
+    } else if ( CURRENT_URL.includes(PIPED_URL) ) {
+        newUrl = YOUTUBE_URL + CURRENT_URL.split(PIPED_URL)[1];
     }
 
     browser.tabs.update({
