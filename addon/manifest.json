@@ -1,19 +1,40 @@
 {
   "name": "Piped Switch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A context menu button to easily switch between Piped and Youtube.",
   "permissions": [
-    "contextMenus"
+    "contextMenus",
+    "storage",
+    "tabs"
   ],
   "background": {
     "scripts": [
       "js/background.js"
-    ]
+    ],
+    "persistent": true
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*", 
+        "*://piped.kavin.rocks/*"
+      ],
+      "js": ["js/content.js"]
+    }
+  ],
   "icons": {
     "48": "img/logo-48.png",
     "96": "img/logo-96.png",
     "128": "img/logo-128.png"
   },
+  "options_ui": {
+    "page": "../html/options.html",
+    "browser_style": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pipedswitch@example.com"
+    }
+  },  
   "manifest_version": 2
 }
