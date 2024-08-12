@@ -2,37 +2,40 @@
 <html>
 
 <head>
-  <title>Piped Switch Options</title>
+    <title>Piped Switch Options</title>
 </head>
 <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      margin: 20px;
-      text-align: center;
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        text-align: center;
     }
 
     h1 {
-      color: #333;
+        color: #333;
     }
 
     label {
-      display: block;
-      margin-top: 20px;
-      font-size: 18px;
+        display: block;
+        margin-top: 20px;
+        font-size: 18px;
     }
 
     input[type="checkbox"] {
-      margin-right: 10px;
-      transform: scale(1.5);
+        margin-right: 10px;
+        transform: scale(1.5);
     }
-  </style>
+</style>
 <body>
-  <h1>Options</h1>
-  <label>
-    <input type="checkbox" id="newTabCheckbox"> Open in new tab
-  </label>
-  <script src="../js/options.js"></script>
+<h1>Options</h1>
+<label>
+    Open in new tab: <input type="checkbox" id="newTabCheckbox"/>
+</label>
+<label>
+    Instance URL: <input type="url" placeholder="https://piped.kavin.rocks/" id="instanceUrlInput"/>
+</label>
+<script src="../js/options.js"></script>
 </body>
 
 </html>

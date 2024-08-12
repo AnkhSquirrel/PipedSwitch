@@ -20,9 +20,9 @@ function Switch(info) {
     browser.storage.sync.get('openInNewTab', function (result) {
         const openInNewTab = result.openInNewTab || false;
         if (openInNewTab) {
-            browser.tabs.create({ url: newUrl });
+            browser.tabs.create({url: newUrl});
         } else {
-            browser.tabs.update({ url: newUrl });
+            browser.tabs.update({url: newUrl});
         }
     });
 }
