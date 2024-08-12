@@ -2,16 +2,14 @@ const YOUTUBE_URL = "https://www.youtube.com/";
 
 browser.storage.sync.get('instanceUrl', function (result) {
     let pipedUrl = result.instanceUrl || 'https://piped.kavin.rocks/';
+
     window.browser.contextMenus.create({
         "title": "Piped Switch",
         "onclick": Switch,
         "documentUrlPatterns": ['*://*.youtube.com/*', pipedUrl + '*']
     });
-});
 
-function Switch(info) {
-    browser.storage.sync.get('instanceUrl', function (result) {
-        let pipedUrl = result.instanceUrl || 'https://piped.kavin.rocks/';
+    function Switch(info) {
         const CURRENT_URL = info.pageUrl;
         let newUrl = CURRENT_URL;
 
@@ -29,5 +27,5 @@ function Switch(info) {
                 browser.tabs.update({url: newUrl});
             }
         });
-    });
-}
+    }
+});
