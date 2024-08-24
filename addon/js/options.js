@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     browser.storage.sync.get('instanceUrl', function (result) {
         document.getElementById('instanceUrlInput').value = result.instanceUrl || 'https://piped.kavin.rocks/';
     });
-    document.getElementById('instanceUrlInput').addEventListener('change', function () {
+    document.getElementById('instanceUrlInput').addEventListener('input', function () {
         browser.storage.sync.set({'instanceUrl': this.value});
     });
 });

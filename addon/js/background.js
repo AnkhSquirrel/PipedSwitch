@@ -1,7 +1,11 @@
 const YOUTUBE_URL = "https://www.youtube.com/";
+const DEFAULT_PIPED_INSTANCE_URL = "https://piped.kavin.rocks/";
+
+let pipedUrl = DEFAULT_PIPED_INSTANCE_URL;
 
 browser.storage.sync.get('instanceUrl', function (result) {
-    let pipedUrl = result.instanceUrl || 'https://piped.kavin.rocks/';
+
+    pipedUrl = result.instanceUrl || DEFAULT_PIPED_INSTANCE_URL;
 
     window.browser.contextMenus.create({
         "title": "Piped Switch",
@@ -27,5 +31,12 @@ browser.storage.sync.get('instanceUrl', function (result) {
                 browser.tabs.update({url: newUrl});
             }
         });
+    }
+});
+
+
+browser.storage.onChanged.addListener(function (changes, area) {
+    if (area === 'sync' && changes.instanceUrl) {
+        pipedUrl = changes.instanceUrl.newValue || DEFAULT_PIPED_INSTANCE_URL;
     }
 });
